@@ -43,12 +43,7 @@ public class PlayerControler : MonoBehaviour
         {
             canJump = false;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300f));
-            
-            if (Input.GetKey("left") || Input.GetKey("right"))
-            {
-                gameObject.GetComponent<Animator>().SetBool("jump_moving", true);
-            }
-            
+            gameObject.GetComponent<Animator>().SetBool("jump", true);
         }
     }
 
@@ -57,7 +52,7 @@ public class PlayerControler : MonoBehaviour
         if (collision.transform.tag == "Floor")
         {
             canJump = true;
-            gameObject.GetComponent<Animator>().SetBool("jump_moving", false);
+            gameObject.GetComponent<Animator>().SetBool("jump", false);
         }
     }
 }
